@@ -1,0 +1,40 @@
+# Python
+backend/venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/lostandfound.db
+*.db
+*.sqlite3
+
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+build/
+.npm
+*.log
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary & report artifacts
+report.html
