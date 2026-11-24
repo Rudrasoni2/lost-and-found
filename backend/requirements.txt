@@ -1,6 +1,6 @@
-# Install PyTorch CPU-only separately:
-# pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
-
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
 fastapi==0.115.0
 uvicorn[standard]==0.30.0
 sqlalchemy==2.0.35
