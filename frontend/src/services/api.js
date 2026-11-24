@@ -1,8 +1,19 @@
 import axios from 'axios';
 
+export const API_BASE_URL = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
+
 const api = axios.create({
-  baseURL: '',
+  baseURL: API_BASE_URL,
 });
+
+export const getImageUrl = (filePath) => {
+  if (!filePath) return '';
+  if (filePath.startsWith('http://') || filePath.startsWith('https://')) {
+    return filePath;
+  }
+  const cleanPath = filePath.startsWith('/') ? filePath : `/${filePath}`;
+  return `${API_BASE_URL}${cleanPath}`;
+};
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');

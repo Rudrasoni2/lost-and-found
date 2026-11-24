@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MessageSquare, MapPin, ChevronDown, ChevronUp, Brain, Cpu, Zap, CheckCircle, Info } from 'lucide-react';
+import { getImageUrl } from '../services/api';
 
 export default function MatchCard({ match }) {
   const { item, similarity_score, expert_system, hybrid_score } = match;
@@ -37,7 +38,7 @@ export default function MatchCard({ match }) {
       <div className="p-4 flex gap-4 items-start">
         <div className="w-20 h-20 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden">
           {item.images && item.images.length > 0 ? (
-            <img src={`/${item.images[0].file_path}`} alt={item.name} className="w-full h-full object-cover" />
+            <img src={getImageUrl(item.images[0].file_path)} alt={item.name} className="w-full h-full object-cover" />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">No image</div>
           )}

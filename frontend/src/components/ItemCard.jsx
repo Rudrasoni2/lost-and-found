@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Calendar, Tag, User } from 'lucide-react';
 import { format } from 'date-fns';
+import { getImageUrl } from '../services/api';
 
 /**
  * ItemCard component with premium theme and 3D tilt effect.
@@ -45,7 +46,7 @@ export default function ItemCard({ item }) {
       <div className="relative h-48 bg-softBg overflow-hidden">
         {item.images && item.images.length > 0 ? (
           <img
-            src={`/${item.images[0].file_path}`}
+            src={getImageUrl(item.images[0].file_path)}
             alt={item.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />

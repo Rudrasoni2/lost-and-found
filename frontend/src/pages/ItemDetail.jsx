@@ -4,7 +4,7 @@ import { MapPin, Calendar, Tag, Palette, User, MessageSquare, CheckCircle, Trash
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import MatchCard from '../components/MatchCard';
-import { getItem, getMatches, findMatches, getExpertMatches, deleteItem, updateItem } from '../services/api';
+import { getItem, getMatches, findMatches, getExpertMatches, deleteItem, updateItem, getImageUrl } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
 const ItemDetail = () => {
@@ -160,8 +160,7 @@ const ItemDetail = () => {
   const getImgUrl = (imgObj) => {
     if (!imgObj) return '';
     const path = typeof imgObj === 'string' ? imgObj : imgObj.file_path;
-    if (!path) return '';
-    return path.startsWith('http') || path.startsWith('/') ? path : `/${path}`;
+    return getImageUrl(path);
   };
 
   return (
